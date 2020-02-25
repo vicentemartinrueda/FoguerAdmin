@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Database.General.Configuration
 {
-    class UsuarioConfiguration : IEntityTypeConfiguration<Usuario>
+    class UserConfiguration : IEntityTypeConfiguration<Role>
     {
-        public void Configure(EntityTypeBuilder<Usuario> builder)
+        public void Configure(EntityTypeBuilder<Role> builder)
         {
-            builder.HasKey(e => e.IdUsuario);
+            builder.HasKey(e => e.Id);
 
             //Añadido Query Filter en la tabla Usuario
             //builder.HasQueryFilter(b => b.EstadosId != (int)EstadosEnumeration.Desactivado);

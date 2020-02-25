@@ -36,7 +36,7 @@ namespace FoguerAppApi
             var connection = Configuration.GetConnectionString("Default");
 
             //Registro del contexto
-            services.AddDbContext<FoguerAppDbContext>(options => options.UseSqlServer(connection));
+            services.AddDbContext<FoguerAppDbContext>(options => options.UseSqlServer(connection, b=> b.MigrationsAssembly("FoguerAppApi")));
 
             //Registramos AutoMapper
             services.AddAutoMapper(typeof(MappingProfile).GetType().Assembly);

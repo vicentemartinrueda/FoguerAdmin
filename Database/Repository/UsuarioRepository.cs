@@ -18,9 +18,9 @@ namespace Database.Repository
             _context = context;
         }
 
-        public IQueryable<Usuario> Get()
+        public IQueryable<Role> Get()
         {
-            return _context.Usuario.AsNoTracking();
+            return _context.User.AsNoTracking();
         }
 
         

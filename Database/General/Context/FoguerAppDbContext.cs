@@ -17,7 +17,9 @@ namespace Database.General.Context
         {
         }
 
-        public virtual DbSet<Usuario> Usuario { get; set; }
+        public virtual DbSet<Role> Role { get; set; }
+        public virtual DbSet<Role> User { get; set; }
+        public virtual DbSet<Post> Post { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -26,9 +28,9 @@ namespace Database.General.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-         
-            modelBuilder.ApplyConfiguration(new UsuarioConfiguration());
-           
+            modelBuilder.ApplyConfiguration(new RoleConfiguration());
+            modelBuilder.ApplyConfiguration(new UserConfiguration());
+            modelBuilder.ApplyConfiguration(new PostConfiguration());
         }
     }
 }
