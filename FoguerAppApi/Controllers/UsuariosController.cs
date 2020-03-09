@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Database.General.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Service.DTO;
@@ -26,9 +27,9 @@ namespace FoguerAppApi.Controllers
         /// <returns></returns>
         // GET: api/Usuario
         [HttpGet]
-        public async Task<ActionResult<List<DtoUsuario>>> GetUsuarios()
+        public async Task<ActionResult<List<DtoUser>>> GetUsuarios()
         {
-            List<DtoUsuario> usuario = await _usuarioService.Get();
+            List<DtoUser> usuario = await _usuarioService.Get();
             return usuario;
         }
     }

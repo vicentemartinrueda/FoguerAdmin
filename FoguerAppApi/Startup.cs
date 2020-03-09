@@ -1,17 +1,11 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using FoguerAppApi.Assets;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using AutoMapper;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
@@ -39,7 +33,7 @@ namespace FoguerAppApi
             services.AddDbContext<FoguerAppDbContext>(options => options.UseSqlServer(connection, b=> b.MigrationsAssembly("FoguerAppApi")));
 
             //Registramos AutoMapper
-            services.AddAutoMapper(typeof(MappingProfile).GetType().Assembly);
+            services.AddAutoMapper(typeof(Startup));
 
             services.AddControllers();
 

@@ -4,14 +4,16 @@ using Database.General.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FoguerAppApi.Migrations
 {
     [DbContext(typeof(FoguerAppDbContext))]
-    partial class FoguerAppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200229163949_RelationshipBugFixed")]
+    partial class RelationshipBugFixed
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -52,30 +54,6 @@ namespace FoguerAppApi.Migrations
                     b.HasIndex("CreatorId");
 
                     b.ToTable("Post");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CreationDate = new DateTime(2020, 2, 29, 19, 26, 8, 691, DateTimeKind.Local).AddTicks(3558),
-                            CreatorId = 1,
-                            DeleteDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Subtitle = "Subtítulo 1",
-                            Text = "Texto 1",
-                            Title = "Título 1",
-                            UpdateDate = new DateTime(2020, 2, 29, 19, 26, 8, 691, DateTimeKind.Local).AddTicks(4155)
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CreationDate = new DateTime(2020, 2, 29, 19, 26, 8, 691, DateTimeKind.Local).AddTicks(4799),
-                            CreatorId = 1,
-                            DeleteDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Subtitle = "Subtítulo 2",
-                            Text = "Texto 2",
-                            Title = "Título 2",
-                            UpdateDate = new DateTime(2020, 2, 29, 19, 26, 8, 691, DateTimeKind.Local).AddTicks(4824)
-                        });
                 });
 
             modelBuilder.Entity("Database.General.Models.Role", b =>
@@ -108,20 +86,20 @@ namespace FoguerAppApi.Migrations
                         new
                         {
                             Id = 1,
-                            CreationDate = new DateTime(2020, 2, 29, 19, 26, 8, 685, DateTimeKind.Local).AddTicks(5459),
+                            CreationDate = new DateTime(2020, 2, 29, 17, 39, 49, 148, DateTimeKind.Local).AddTicks(5833),
                             DeleteDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "User",
                             Priority = 10,
-                            UpdateDate = new DateTime(2020, 2, 29, 19, 26, 8, 688, DateTimeKind.Local).AddTicks(3123)
+                            UpdateDate = new DateTime(2020, 2, 29, 17, 39, 49, 151, DateTimeKind.Local).AddTicks(3195)
                         },
                         new
                         {
                             Id = 2,
-                            CreationDate = new DateTime(2020, 2, 29, 19, 26, 8, 688, DateTimeKind.Local).AddTicks(3864),
+                            CreationDate = new DateTime(2020, 2, 29, 17, 39, 49, 151, DateTimeKind.Local).AddTicks(4046),
                             DeleteDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Manager",
                             Priority = 1,
-                            UpdateDate = new DateTime(2020, 2, 29, 19, 26, 8, 688, DateTimeKind.Local).AddTicks(3892)
+                            UpdateDate = new DateTime(2020, 2, 29, 17, 39, 49, 151, DateTimeKind.Local).AddTicks(4073)
                         });
                 });
 
@@ -173,28 +151,28 @@ namespace FoguerAppApi.Migrations
                         {
                             Id = 1,
                             Activated = true,
-                            CreationDate = new DateTime(2020, 2, 29, 19, 26, 8, 690, DateTimeKind.Local).AddTicks(8502),
+                            CreationDate = new DateTime(2020, 2, 29, 17, 39, 49, 154, DateTimeKind.Local).AddTicks(477),
                             DeleteDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Vicente",
                             Nif = "53244606C",
-                            ReleaseDate = new DateTime(2020, 2, 29, 19, 26, 8, 690, DateTimeKind.Local).AddTicks(7296),
+                            ReleaseDate = new DateTime(2020, 2, 29, 17, 39, 49, 153, DateTimeKind.Local).AddTicks(9063),
                             RoleId = 2,
                             Surname = "Martín Rueda",
-                            UpdateDate = new DateTime(2020, 2, 29, 19, 26, 8, 690, DateTimeKind.Local).AddTicks(9113),
+                            UpdateDate = new DateTime(2020, 2, 29, 17, 39, 49, 154, DateTimeKind.Local).AddTicks(1098),
                             UserName = "santofrost"
                         },
                         new
                         {
                             Id = 2,
                             Activated = true,
-                            CreationDate = new DateTime(2020, 2, 29, 19, 26, 8, 690, DateTimeKind.Local).AddTicks(9811),
+                            CreationDate = new DateTime(2020, 2, 29, 17, 39, 49, 154, DateTimeKind.Local).AddTicks(1812),
                             DeleteDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Felipe",
                             Nif = "12345678Z",
-                            ReleaseDate = new DateTime(2020, 2, 29, 19, 26, 8, 690, DateTimeKind.Local).AddTicks(9781),
+                            ReleaseDate = new DateTime(2020, 2, 29, 17, 39, 49, 154, DateTimeKind.Local).AddTicks(1775),
                             RoleId = 1,
                             Surname = "Del Real Gama",
-                            UpdateDate = new DateTime(2020, 2, 29, 19, 26, 8, 690, DateTimeKind.Local).AddTicks(9822),
+                            UpdateDate = new DateTime(2020, 2, 29, 17, 39, 49, 154, DateTimeKind.Local).AddTicks(1822),
                             UserName = "user2"
                         });
                 });

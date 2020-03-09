@@ -1,5 +1,7 @@
 ﻿using System;
 using AutoMapper;
+using Database.General.Models;
+using Service.DTO;
 
 namespace FoguerAppApi.Assets
 {
@@ -7,14 +9,12 @@ namespace FoguerAppApi.Assets
     {
         public MappingProfile()
         {
-            //CreateMap<VMUsuarioAdd, Usuario>()
-            //   .ForMember(dest => dest.UserName, opt => opt.MapFrom(c => c.UserName))
-            //   .ForMember(dest => dest.TipoUsuarioId, opt => opt.MapFrom(c => c.TipoUsuarioId))
-            //   .ForMember(dest => dest.Notificaciones, opt => opt.MapFrom(c => c.NotificacionesId))
-            //   .ForMember(dest => dest.EstadosId, opt => opt.MapFrom(c => c.EstadosId))
-            //   .ForMember(dest => dest.IdiomasId, opt => opt.MapFrom(c => c.IdiomasId))
-            //   .ForMember(dest => dest.Premium, opt => opt.MapFrom(c => c.PremiumId))
-            //   .ForMember(dest => dest.Password, opt => opt.MapFrom(c => c.Password));
+            CreateMap<User, DtoUser>();
+            CreateMap<DtoUser, User>();
+            CreateMap<Role, DtoRole>();
+            CreateMap<DtoRole, Role>();
+            CreateMap<Post, DtoPost>();
+            CreateMap<DtoPost, Post>();
         }
     }
 }

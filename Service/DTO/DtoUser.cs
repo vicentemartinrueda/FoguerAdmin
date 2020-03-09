@@ -1,16 +1,12 @@
-﻿using System;
+﻿using Database.General.Models;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+using System.Text;
 
-namespace Database.General.Models
+namespace Service.DTO
 {
-    public partial class User
+    public class DtoUser
     {
-        public User()
-        {
-        }
-
-        [Key]
         public int Id { get; set; }
 
         public string UserName { get; set; }
@@ -33,11 +29,9 @@ namespace Database.General.Models
 
         #region Relationships
 
-        public Role Role { get; set; }
+        public DtoRole Role { get; set; }
 
-        public int RoleId { get; set; }
-
-        public ICollection<Post> Posts { get; set; }
+        public List<DtoPost> Posts { get; set; }
 
         #endregion
     }

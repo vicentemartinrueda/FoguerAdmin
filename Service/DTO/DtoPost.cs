@@ -1,16 +1,9 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Database.General.Models
+namespace Service.DTO
 {
-    public partial class Post
+    public class DtoPost
     {
-        public Post()
-        {
-        }
-
-        [Key]
         public int Id { get; set; }
 
         public string Title { get; set; }
@@ -26,10 +19,6 @@ namespace Database.General.Models
         public DateTime DeleteDate { get; set; }
 
         #region Relationships
-
-        public int CreatorId { get; set; }
-
-        public User Creator { get; set; }
 
         #endregion
     }

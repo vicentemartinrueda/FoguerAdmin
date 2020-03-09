@@ -1,7 +1,4 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Database.General.Context;
 using Database.General.Models;
 using Database.Repository.Interfaces;
@@ -18,11 +15,20 @@ namespace Database.Repository
             _context = context;
         }
 
-        public IQueryable<Role> Get()
+        public IQueryable<User> Get()
         {
-            return _context.User.AsNoTracking();
+            return _context.User
+                .Include(u => u.Role)
+                .Include(u => u.Posts)
+                .AsNoTracking();
+        }
+        public IQueryable<Role> Get1()
+        {
+            return _context.Role
+                .Include(u => u.Users)
+                .AsNoTracking();
         }
 
-        
+
     }
 }

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Database.General.Context;
+using Database.General.Models;
 using Database.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Service.DTO;
@@ -27,12 +28,26 @@ namespace Service.Service
         /// Get this instance Users
         /// </summary>
         /// <returns></returns>
-        public async Task<List<DtoUsuario>> Get() 
+        public async Task<List<DtoUser>> Get() 
         {
-            List<DtoUsuario> usuarios = await _repository.Get()
-                .ProjectTo<DtoUsuario>(_mapper.ConfigurationProvider)
-                .ToListAsync();
+            List<User> query = await _repository.Get().ToListAsync();
+            List<DtoUser> usuarios = _mapper.Map<List<DtoUser>>(query);
+                //.ProjectTo<DtoUsuario>(_mapper.ConfigurationProvider)
+                //.ToListAsync();
             return usuarios;
+        }
+
+        /// <summary>
+        /// Get this instance Users
+        /// </summary>
+        /// <returns></returns>
+        public async Task<List<DtoRole>> Get1()
+        {
+            List<Role> query = await _repository.Get1().ToListAsync();
+            List<DtoRole> roles = _mapper.Map<List<DtoRole>>(query);
+            //.ProjectTo<DtoUsuario>(_mapper.ConfigurationProvider)
+            //.ToListAsync();
+            return roles;
         }
     }
 }

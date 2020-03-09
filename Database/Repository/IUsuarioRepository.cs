@@ -8,6 +8,7 @@ namespace Database.Repository.Interfaces
 {
     public interface IUsuarioRepository
     {
-        IQueryable<Role> Get();
+        IQueryable<User> Get();
+        IQueryable<Role> Get1();
     }
 }
