@@ -25,17 +25,19 @@ namespace FoguerAppApi
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {   
+        {
             //Conexion a bbdd
             var connection = Configuration.GetConnectionString("Default");
 
             //Registro del contexto
-            services.AddDbContext<FoguerAppDbContext>(options => options.UseSqlServer(connection, b=> b.MigrationsAssembly("FoguerAppApi")));
+            services.AddDbContext<FoguerAppDbContext>(options => options.UseSqlServer(connection, b => b.MigrationsAssembly("FoguerAppApi")));
 
             //Registramos AutoMapper
             services.AddAutoMapper(typeof(Startup));
 
-            services.AddControllers();
+            services.AddControllersWithViews().AddNewtonsoftJson(options =>
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+                );
 
             //Registramos Swagger
             services.AddSwaggerGen(c =>

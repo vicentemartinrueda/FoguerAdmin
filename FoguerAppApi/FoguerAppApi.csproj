@@ -5,11 +5,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20200829172632_AllTables.cs" />
+    <Compile Remove="Migrations\20200829172632_AllTables.Designer.cs" />
+    <Compile Remove="Migrations\20200829173002_Migrations.cs" />
+    <Compile Remove="Migrations\20200829173002_Migrations.Designer.cs" />
+    <Compile Remove="Migrations\20200829175714_AccesoAHijos.cs" />
+    <Compile Remove="Migrations\20200829175714_AccesoAHijos.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="9.0.0" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.1" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.1" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.1">
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.7">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>

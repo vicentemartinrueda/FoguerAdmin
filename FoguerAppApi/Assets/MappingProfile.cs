@@ -15,6 +15,14 @@ namespace FoguerAppApi.Assets
             CreateMap<DtoRole, Role>();
             CreateMap<Post, DtoPost>();
             CreateMap<DtoPost, Post>();
+            CreateMap<Proposal, DtoProposal>();
+            CreateMap<DtoProposal, Proposal>();
+            CreateMap<ProposalComment, DtoProposalComment>();
+            CreateMap<DtoProposalComment, ProposalComment>();
+            CreateMap<ProposalOption, DtoProposalOption>();
+            CreateMap<DtoProposalOption, ProposalOption>();
+            CreateMap<PostComment, DtoPostComment>();
+            CreateMap<DtoPostComment, PostComment>();
         }
     }
 }

@@ -15,7 +15,7 @@ namespace FoguerAppApi.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.1")
+                .HasAnnotation("ProductVersion", "3.1.7")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -57,24 +57,240 @@ namespace FoguerAppApi.Migrations
                         new
                         {
                             Id = 1,
-                            CreationDate = new DateTime(2020, 2, 29, 19, 26, 8, 691, DateTimeKind.Local).AddTicks(3558),
+                            CreationDate = new DateTime(2020, 8, 29, 19, 31, 52, 181, DateTimeKind.Local).AddTicks(2890),
                             CreatorId = 1,
                             DeleteDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Subtitle = "Subtítulo 1",
                             Text = "Texto 1",
                             Title = "Título 1",
-                            UpdateDate = new DateTime(2020, 2, 29, 19, 26, 8, 691, DateTimeKind.Local).AddTicks(4155)
+                            UpdateDate = new DateTime(2020, 8, 29, 19, 31, 52, 181, DateTimeKind.Local).AddTicks(3289)
                         },
                         new
                         {
                             Id = 2,
-                            CreationDate = new DateTime(2020, 2, 29, 19, 26, 8, 691, DateTimeKind.Local).AddTicks(4799),
+                            CreationDate = new DateTime(2020, 8, 29, 19, 31, 52, 181, DateTimeKind.Local).AddTicks(3736),
                             CreatorId = 1,
                             DeleteDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Subtitle = "Subtítulo 2",
                             Text = "Texto 2",
                             Title = "Título 2",
-                            UpdateDate = new DateTime(2020, 2, 29, 19, 26, 8, 691, DateTimeKind.Local).AddTicks(4824)
+                            UpdateDate = new DateTime(2020, 8, 29, 19, 31, 52, 181, DateTimeKind.Local).AddTicks(3761)
+                        });
+                });
+
+            modelBuilder.Entity("Database.General.Models.PostComment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("CreatorId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("DeleteDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("PostId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Text")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CreatorId");
+
+                    b.HasIndex("PostId");
+
+                    b.ToTable("PostComment");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreationDate = new DateTime(2020, 8, 29, 19, 31, 52, 181, DateTimeKind.Local).AddTicks(5439),
+                            CreatorId = 1,
+                            DeleteDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Text = "Genial Post",
+                            UpdateDate = new DateTime(2020, 8, 29, 19, 31, 52, 181, DateTimeKind.Local).AddTicks(5831)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreationDate = new DateTime(2020, 8, 29, 19, 31, 52, 181, DateTimeKind.Local).AddTicks(6271),
+                            CreatorId = 2,
+                            DeleteDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Text = "Fantástico Post",
+                            UpdateDate = new DateTime(2020, 8, 29, 19, 31, 52, 181, DateTimeKind.Local).AddTicks(6295)
+                        });
+                });
+
+            modelBuilder.Entity("Database.General.Models.Proposal", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("CreatorId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("DeleteDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Subtitle")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Text")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CreatorId");
+
+                    b.ToTable("Proposal");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreationDate = new DateTime(2020, 8, 29, 19, 31, 52, 181, DateTimeKind.Local).AddTicks(8594),
+                            CreatorId = 1,
+                            DeleteDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Subtitle = "Subtítulo 1",
+                            Text = "Texto 1",
+                            Title = "Color de las camisetas",
+                            UpdateDate = new DateTime(2020, 8, 29, 19, 31, 52, 181, DateTimeKind.Local).AddTicks(9089)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreationDate = new DateTime(2020, 8, 29, 19, 31, 52, 181, DateTimeKind.Local).AddTicks(9546),
+                            CreatorId = 1,
+                            DeleteDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Subtitle = "Subtítulo 2",
+                            Text = "Texto 2",
+                            Title = "Título 2",
+                            UpdateDate = new DateTime(2020, 8, 29, 19, 31, 52, 181, DateTimeKind.Local).AddTicks(9570)
+                        });
+                });
+
+            modelBuilder.Entity("Database.General.Models.ProposalComment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("CreatorId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("DeleteDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("ProposalId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Text")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CreatorId");
+
+                    b.HasIndex("ProposalId");
+
+                    b.ToTable("ProposalComment");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreationDate = new DateTime(2020, 8, 29, 19, 31, 52, 182, DateTimeKind.Local).AddTicks(1242),
+                            CreatorId = 1,
+                            DeleteDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Text = "Genial Proposal",
+                            UpdateDate = new DateTime(2020, 8, 29, 19, 31, 52, 182, DateTimeKind.Local).AddTicks(1632)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreationDate = new DateTime(2020, 8, 29, 19, 31, 52, 182, DateTimeKind.Local).AddTicks(2046),
+                            CreatorId = 2,
+                            DeleteDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Text = "Fantástico Proposal",
+                            UpdateDate = new DateTime(2020, 8, 29, 19, 31, 52, 182, DateTimeKind.Local).AddTicks(2071)
+                        });
+                });
+
+            modelBuilder.Entity("Database.General.Models.ProposalOption", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DeleteDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("ProposalId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Text")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProposalId");
+
+                    b.ToTable("ProposalOption");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreationDate = new DateTime(2020, 8, 29, 19, 31, 52, 182, DateTimeKind.Local).AddTicks(3777),
+                            DeleteDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ProposalId = 1,
+                            Text = "Rosa",
+                            UpdateDate = new DateTime(2020, 8, 29, 19, 31, 52, 182, DateTimeKind.Local).AddTicks(4161)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreationDate = new DateTime(2020, 8, 29, 19, 31, 52, 182, DateTimeKind.Local).AddTicks(4572),
+                            DeleteDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ProposalId = 1,
+                            Text = "Azul",
+                            UpdateDate = new DateTime(2020, 8, 29, 19, 31, 52, 182, DateTimeKind.Local).AddTicks(4597)
                         });
                 });
 
@@ -108,21 +324,50 @@ namespace FoguerAppApi.Migrations
                         new
                         {
                             Id = 1,
-                            CreationDate = new DateTime(2020, 2, 29, 19, 26, 8, 685, DateTimeKind.Local).AddTicks(5459),
+                            CreationDate = new DateTime(2020, 8, 29, 19, 31, 52, 176, DateTimeKind.Local).AddTicks(665),
                             DeleteDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "User",
                             Priority = 10,
-                            UpdateDate = new DateTime(2020, 2, 29, 19, 26, 8, 688, DateTimeKind.Local).AddTicks(3123)
+                            UpdateDate = new DateTime(2020, 8, 29, 19, 31, 52, 179, DateTimeKind.Local).AddTicks(327)
                         },
                         new
                         {
                             Id = 2,
-                            CreationDate = new DateTime(2020, 2, 29, 19, 26, 8, 688, DateTimeKind.Local).AddTicks(3864),
+                            CreationDate = new DateTime(2020, 8, 29, 19, 31, 52, 179, DateTimeKind.Local).AddTicks(857),
                             DeleteDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Manager",
                             Priority = 1,
-                            UpdateDate = new DateTime(2020, 2, 29, 19, 26, 8, 688, DateTimeKind.Local).AddTicks(3892)
+                            UpdateDate = new DateTime(2020, 8, 29, 19, 31, 52, 179, DateTimeKind.Local).AddTicks(886)
                         });
+                });
+
+            modelBuilder.Entity("Database.General.Models.SharedFile", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("CreatorId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("DeleteDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("UpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Uri")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CreatorId");
+
+                    b.ToTable("SharedFile");
                 });
 
             modelBuilder.Entity("Database.General.Models.User", b =>
@@ -173,28 +418,28 @@ namespace FoguerAppApi.Migrations
                         {
                             Id = 1,
                             Activated = true,
-                            CreationDate = new DateTime(2020, 2, 29, 19, 26, 8, 690, DateTimeKind.Local).AddTicks(8502),
+                            CreationDate = new DateTime(2020, 8, 29, 19, 31, 52, 180, DateTimeKind.Local).AddTicks(9510),
                             DeleteDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Vicente",
                             Nif = "53244606C",
-                            ReleaseDate = new DateTime(2020, 2, 29, 19, 26, 8, 690, DateTimeKind.Local).AddTicks(7296),
+                            ReleaseDate = new DateTime(2020, 8, 29, 19, 31, 52, 180, DateTimeKind.Local).AddTicks(8754),
                             RoleId = 2,
                             Surname = "Martín Rueda",
-                            UpdateDate = new DateTime(2020, 2, 29, 19, 26, 8, 690, DateTimeKind.Local).AddTicks(9113),
+                            UpdateDate = new DateTime(2020, 8, 29, 19, 31, 52, 180, DateTimeKind.Local).AddTicks(9910),
                             UserName = "santofrost"
                         },
                         new
                         {
                             Id = 2,
                             Activated = true,
-                            CreationDate = new DateTime(2020, 2, 29, 19, 26, 8, 690, DateTimeKind.Local).AddTicks(9811),
+                            CreationDate = new DateTime(2020, 8, 29, 19, 31, 52, 181, DateTimeKind.Local).AddTicks(417),
                             DeleteDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Felipe",
                             Nif = "12345678Z",
-                            ReleaseDate = new DateTime(2020, 2, 29, 19, 26, 8, 690, DateTimeKind.Local).AddTicks(9781),
+                            ReleaseDate = new DateTime(2020, 8, 29, 19, 31, 52, 181, DateTimeKind.Local).AddTicks(384),
                             RoleId = 1,
                             Surname = "Del Real Gama",
-                            UpdateDate = new DateTime(2020, 2, 29, 19, 26, 8, 690, DateTimeKind.Local).AddTicks(9822),
+                            UpdateDate = new DateTime(2020, 8, 29, 19, 31, 52, 181, DateTimeKind.Local).AddTicks(430),
                             UserName = "user2"
                         });
                 });
@@ -203,6 +448,59 @@ namespace FoguerAppApi.Migrations
                 {
                     b.HasOne("Database.General.Models.User", "Creator")
                         .WithMany("Posts")
+                        .HasForeignKey("CreatorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Database.General.Models.PostComment", b =>
+                {
+                    b.HasOne("Database.General.Models.User", "Creator")
+                        .WithMany()
+                        .HasForeignKey("CreatorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Database.General.Models.Post", "Post")
+                        .WithMany()
+                        .HasForeignKey("PostId");
+                });
+
+            modelBuilder.Entity("Database.General.Models.Proposal", b =>
+                {
+                    b.HasOne("Database.General.Models.User", "Creator")
+                        .WithMany()
+                        .HasForeignKey("CreatorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Database.General.Models.ProposalComment", b =>
+                {
+                    b.HasOne("Database.General.Models.User", "Creator")
+                        .WithMany()
+                        .HasForeignKey("CreatorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Database.General.Models.Proposal", "Proposal")
+                        .WithMany()
+                        .HasForeignKey("ProposalId");
+                });
+
+            modelBuilder.Entity("Database.General.Models.ProposalOption", b =>
+                {
+                    b.HasOne("Database.General.Models.Proposal", "Proposal")
+                        .WithMany()
+                        .HasForeignKey("ProposalId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Database.General.Models.SharedFile", b =>
+                {
+                    b.HasOne("Database.General.Models.User", "Creator")
+                        .WithMany()
                         .HasForeignKey("CreatorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

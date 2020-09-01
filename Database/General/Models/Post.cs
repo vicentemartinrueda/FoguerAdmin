@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -30,6 +31,8 @@ namespace Database.General.Models
         public int CreatorId { get; set; }
 
         public User Creator { get; set; }
+
+        public ICollection<PostComment> Comments { get; set; }
 
         #endregion
     }

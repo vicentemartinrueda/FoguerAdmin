@@ -6,9 +6,8 @@ using Database.General.Models;
 
 namespace Database.Repository.Interfaces
 {
-    public interface IUsuarioRepository
+    public interface IUserRepository
     {
-        IQueryable<User> Get();
-        IQueryable<Role> Get1();
+        IQueryable<User> GetAll();
     }
 }

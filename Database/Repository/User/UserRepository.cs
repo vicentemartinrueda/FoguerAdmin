@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Database.Repository
 {
-    public class UsuarioRepository : IUsuarioRepository
+    public class UsuarioRepository : IUserRepository
     {
         private readonly FoguerAppDbContext _context;
 
@@ -15,17 +15,11 @@ namespace Database.Repository
             _context = context;
         }
 
-        public IQueryable<User> Get()
+        public IQueryable<User> GetAll()
         {
             return _context.User
                 .Include(u => u.Role)
                 .Include(u => u.Posts)
-                .AsNoTracking();
-        }
-        public IQueryable<Role> Get1()
-        {
-            return _context.Role
-                .Include(u => u.Users)
                 .AsNoTracking();
         }
 
