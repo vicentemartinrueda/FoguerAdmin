@@ -45,8 +45,6 @@ namespace Service.Service
         {
             Post query = await _repository.GetOne(id);
             DtoPost anuncio = _mapper.Map<DtoPost>(query);
-            //.ProjectTo<DtoUsuario>(_mapper.ConfigurationProvider)
-            //.ToListAsync();
             return anuncio;
         }
 

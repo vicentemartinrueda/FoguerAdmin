@@ -10,6 +10,8 @@ namespace Service.DTO
 
         public int CreatorId { get; set; }
 
+        public int? PostId { get; set; }
+
         public DateTime CreationDate { get; set; }
 
         public DateTime UpdateDate { get; set; }

@@ -39,6 +39,7 @@ namespace FoguerAppApi.Controllers
         public async Task<ActionResult<DtoProposal>> GetPropuesta(int id)
         {
             DtoProposal propuesta = await _propuestaService.GetOne(id);
+            propuesta.Comments.Sort((x, y) => DateTime.Compare(y.CreationDate, x.CreationDate));
             return propuesta;
         }
 

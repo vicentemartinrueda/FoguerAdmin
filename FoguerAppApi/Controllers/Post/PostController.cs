@@ -42,6 +42,7 @@ namespace FoguerAppApi.Controllers
         public async Task<ActionResult<DtoPost>> GetAnuncio(int id)
         {
             DtoPost anuncio = await _anuncioService.GetOne(id);
+            anuncio.Comments.Sort((x, y) => DateTime.Compare(y.CreationDate, x.CreationDate));
             return anuncio;
         }
 
