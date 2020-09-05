@@ -27,6 +27,7 @@ namespace FoguerAppApi.Controllers
         public async Task<ActionResult<List<DtoProposal>>> GetPropuestas()
         {
             List<DtoProposal> propuestas = await _propuestaService.GetAll();
+            propuestas.Sort((x, y) => DateTime.Compare(y.CreationDate, x.CreationDate));
             return propuestas;
         }
 
