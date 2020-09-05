@@ -19,6 +19,7 @@ namespace Database.General.Context
         public virtual DbSet<Proposal> Proposal { get; set; }
         public virtual DbSet<ProposalOption> ProposalOption { get; set; }
         public virtual DbSet<ProposalComment> ProposalComment { get; set; }
+        public virtual DbSet<OptionUser> OptionUser { get; set; }
         public virtual DbSet<SharedFile> SharedFile { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

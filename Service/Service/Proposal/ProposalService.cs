@@ -65,10 +65,10 @@ namespace Service.Service
         /// Get this instance Users
         /// </summary>
         /// <returns></returns>
-        public async Task<List<DtoProposalOption>> GetOpciones(int id)
+        public async Task<List<DtoProposalOptionVoters>> GetOpciones(int id)
         {
             List<ProposalOption> query = await _repository.GetOpciones(id).ToListAsync();
-            List<DtoProposalOption> propuestas = _mapper.Map<List<DtoProposalOption>>(query);
+            List<DtoProposalOptionVoters> propuestas = _mapper.Map<List<DtoProposalOptionVoters>>(query);
             //.ProjectTo<DtoUsuario>(_mapper.ConfigurationProvider)
             //.ToListAsync();
             return propuestas;
@@ -114,6 +114,37 @@ namespace Service.Service
             Proposal dtoPropuesta = await _repository.GetOne(id);
             _repository.Delete(dtoPropuesta);
             return true;
+        }
+
+        /// <summary>
+        /// Get this instance Users
+        /// </summary>
+        /// <returns></returns>
+        public async Task<DtoOptionUser> Vote(DtoOptionUser dto, int id)
+        {
+            List<ProposalOption> query = await _repository.GetOpciones(id).ToListAsync();
+            List<DtoProposalOptionVoters> opciones = _mapper.Map<List<DtoProposalOptionVoters>>(query);
+
+            DtoOptionUser encontrado = null;
+
+            foreach (DtoProposalOptionVoters opcion in opciones)
+            {
+                var esta = opcion.Voters.Find(x => x.UserId == dto.UserId);
+                if (esta != null) encontrado = esta;
+            }
+
+            if (encontrado != null)
+            {
+                //BORRAR
+                OptionUser deletionVote = _mapper.Map<OptionUser>(encontrado);
+                _repository.DeleteVote(deletionVote);
+            }
+
+            //CREAR
+            OptionUser vote = _mapper.Map<OptionUser>(dto);
+            _repository.CreateVote(vote);
+
+            return dto;
         }
     }
 }

@@ -62,9 +62,9 @@ namespace FoguerAppApi.Controllers
         /// <returns></returns>
         // GET: api/Proposal
         [HttpGet("{id}/Options")]
-        public async Task<ActionResult<List<DtoProposalComment>>> GetOpciones(int id)
+        public async Task<ActionResult<List<DtoProposalOptionVoters>>> GetOpciones(int id)
         {
-            List<DtoProposalComment> propuesta = await _propuestaService.GetComentarios(id);
+            List<DtoProposalOptionVoters> propuesta = await _propuestaService.GetOpciones(id);
             return propuesta;
         }
 
@@ -102,6 +102,18 @@ namespace FoguerAppApi.Controllers
         {
             await _propuestaService.Delete(id);
             return Ok();
+        }
+
+        /// <summary>
+        /// Votación
+        /// </summary>
+        /// <returns></returns>
+        // GET: api/Proposal
+        [HttpPut("{id}/Vote")]
+        public async Task<ActionResult<DtoOptionUser>> Vote(int id, DtoOptionUser dto)
+        {
+            DtoOptionUser propuesta = await _propuestaService.Vote(dto, id);
+            return Ok(propuesta);
         }
     }
 }

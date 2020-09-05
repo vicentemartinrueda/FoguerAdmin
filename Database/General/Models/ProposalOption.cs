@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -26,6 +27,8 @@ namespace Database.General.Models
         public int ProposalId { get; set; }
 
         public Proposal Proposal { get; set; }
+
+        public ICollection<OptionUser> Voters { get; set; }
 
         #endregion
     }

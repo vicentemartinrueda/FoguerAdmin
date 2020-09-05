@@ -28,7 +28,7 @@ namespace Service.Service
         /// Get this instance Users
         /// </summary>
         /// <returns></returns>
-        Task<List<DtoProposalOption>> GetOpciones(int id);
+        Task<List<DtoProposalOptionVoters>> GetOpciones(int id);
 
         /// <summary>
         /// Get this instance Users
@@ -47,5 +47,11 @@ namespace Service.Service
         /// </summary>
         /// <returns></returns>
         Task<bool> Delete(int id);
+
+        /// <summary>
+        /// Get this instance Users
+        /// </summary>
+        /// <returns></returns>
+        Task<DtoOptionUser> Vote(DtoOptionUser dto, int id);
     }
 }

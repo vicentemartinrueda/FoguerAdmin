@@ -11,6 +11,10 @@
     <Compile Remove="Migrations\20200829173002_Migrations.Designer.cs" />
     <Compile Remove="Migrations\20200829175714_AccesoAHijos.cs" />
     <Compile Remove="Migrations\20200829175714_AccesoAHijos.Designer.cs" />
+    <Compile Remove="Migrations\20200905003424_CreateRelationBetweenUserAndOption.cs" />
+    <Compile Remove="Migrations\20200905003424_CreateRelationBetweenUserAndOption.Designer.cs" />
+    <Compile Remove="Migrations\20200905003529_CreateRelationBetweenUserAndOption.cs" />
+    <Compile Remove="Migrations\20200905003529_CreateRelationBetweenUserAndOption.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

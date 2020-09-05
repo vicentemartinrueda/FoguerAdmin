@@ -19,5 +19,10 @@ namespace Database.Repository.Interfaces
         Task<Proposal> Update(Proposal propuesta, Proposal dto);
 
         void Delete(Proposal propuesta);
+
+        void DeleteVote(OptionUser vote);
+
+        void CreateVote(OptionUser vote);
+
     }
 }

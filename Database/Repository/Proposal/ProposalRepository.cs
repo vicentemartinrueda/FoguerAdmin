@@ -43,7 +43,7 @@ namespace Database.Repository
 
         public IQueryable<ProposalOption> GetOpciones(int id)
         {
-            return _context.ProposalOption
+            return _context.ProposalOption.Include(po => po.Voters)
                 .Where(pc => pc.ProposalId == id)
                 .AsNoTracking();
         }
@@ -68,6 +68,18 @@ namespace Database.Repository
         public void Delete(Proposal propuesta)
         {
             _context.Remove(propuesta);
+            _context.SaveChanges();
+        }
+
+        public void DeleteVote(OptionUser vote)
+        {
+            _context.Remove(vote);
+            _context.SaveChanges();
+        }
+
+        public void CreateVote(OptionUser vote)
+        {
+            _context.OptionUser.Add(vote);
             _context.SaveChanges();
         }
     }

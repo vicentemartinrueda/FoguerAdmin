@@ -21,8 +21,12 @@ namespace FoguerAppApi.Assets
             CreateMap<DtoProposalComment, ProposalComment>();
             CreateMap<ProposalOption, DtoProposalOption>();
             CreateMap<DtoProposalOption, ProposalOption>();
+            CreateMap<ProposalOption, DtoProposalOptionVoters>();
+            CreateMap<DtoProposalOptionVoters, ProposalOption>();
             CreateMap<PostComment, DtoPostComment>();
             CreateMap<DtoPostComment, PostComment>();
+            CreateMap<OptionUser, DtoOptionUser>();
+            CreateMap<DtoOptionUser, OptionUser>();
         }
     }
 }
