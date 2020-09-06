@@ -15,6 +15,8 @@ namespace Service.DTO
 
         public string Text { get; set; }
 
+        public int Photo { get; set; }
+
         public int CreatorId { get; set; }
 
         public DateTime CreationDate { get; set; }

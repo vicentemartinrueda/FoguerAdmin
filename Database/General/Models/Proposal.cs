@@ -20,6 +20,8 @@ namespace Database.General.Models
 
         public string Text { get; set; }
 
+        public int Photo { get; set; }
+
         public DateTime CreationDate { get; set; }
 
         public DateTime UpdateDate { get; set; }

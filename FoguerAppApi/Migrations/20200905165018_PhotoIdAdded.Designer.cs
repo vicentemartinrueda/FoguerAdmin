@@ -4,14 +4,16 @@ using Database.General.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FoguerAppApi.Migrations
 {
     [DbContext(typeof(FoguerAppDbContext))]
-    partial class FoguerAppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200905165018_PhotoIdAdded")]
+    partial class PhotoIdAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
