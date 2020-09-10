@@ -68,6 +68,15 @@ namespace FoguerAppApi
 
             });
 
+            //Configuracion de IdentityServer
+            services.AddAuthentication("Bearer")
+                .AddIdentityServerAuthentication(options =>
+                {
+                    options.Authority = "https://localhost:5001";
+                    options.RequireHttpsMetadata = false;
+                    options.ApiName = "apiFoguerAdmin";
+                });
+
             //Añade los servicios y los repositorios empleando Scrutor, que nos permite agregar todas las que siguen un patron
             services.Scan(scan => scan
                 .FromAssemblies(Assembly.Load("Service"), Assembly.Load("Database"))
